@@ -1,40 +1,37 @@
-# Chat-space DB設計
+# README
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|user|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :member
-- has_many :message
-
+- has_many :groups_users
+- has_many :messages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
 ### Association
-- has_many :member
-- has_many :message
+- has_many :groups_users
 
-
-### groups_usersテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
 - belongs_to :group
-
+- belongs_to :user
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|message|text|
-|user_id|integer|null: false, foreigh_key: true|
+|message|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
 - belongs_to :group
+- belongs_to :user

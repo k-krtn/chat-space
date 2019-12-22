@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # README
 
 ## usersテーブル
@@ -35,3 +36,5 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+=======
+>>>>>>> Stashed changes
